@@ -3,16 +3,18 @@ package org.unibl.etf.ip.fitnessappspring.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Data
 @Entity
-@Table(name = "administrator", schema = "fitnessapp", catalog = "")
-public class AdministratorEntity {
+@Table(name = "savjetnik", schema = "fitnessapp", catalog = "")
+public class SavjetnikEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "JMBG")
+    private String jmbg;
     @Basic
     @Column(name = "ime")
     private String ime;
@@ -23,11 +25,17 @@ public class AdministratorEntity {
     @Column(name = "email")
     private String email;
     @Basic
-    @Column(name = "broj_telefona")
-    private String brojTelefona;
+    @Column(name = "brTelefona")
+    private String brTelefona;
+    @Basic
+    @Column(name = "adresa")
+    private String adresa;
     @Basic
     @Column(name = "nalog_idnalog")
     private Integer nalogIdnalog;
+    @OneToMany(mappedBy = "savjetnikBySavjetnikJmbg")
+    private List<PorukaEntity> porukasByJmbg;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "nalog_idnalog", referencedColumnName = "idnalog", nullable = false, insertable=false, updatable=false)
     private NalogEntity nalogByNalogIdnalog;
