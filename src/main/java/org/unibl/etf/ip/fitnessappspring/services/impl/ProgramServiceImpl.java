@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.ip.fitnessappspring.exceptions.NotFoundException;
 import org.unibl.etf.ip.fitnessappspring.models.Program;
+import org.unibl.etf.ip.fitnessappspring.models.ProgramRequest;
 import org.unibl.etf.ip.fitnessappspring.models.SingleProgram;
+import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
 import org.unibl.etf.ip.fitnessappspring.repositories.ProgramEntityRepository;
 import org.unibl.etf.ip.fitnessappspring.services.ProgramService;
 
@@ -39,4 +41,29 @@ public class ProgramServiceImpl implements ProgramService {
     public List<Program> getAllProgramsByLocation(Integer id) {
     return repository.getAllByLokacijaOdrzavanjaIdlokacijaOdrzavanja(id).stream().map(l -> modelMapper.map(l, Program.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public Program insert(ProgramRequest request) throws NotFoundException {
+        ProgramEntity programEntity = modelMapper.map(request, ProgramEntity.class);
+        programEntity.setIdProgram(null);
+        programEntity = repository.saveAndFlush(programEntity);
+        return findById(programEntity.getIdProgram());
+
+    }
+
+    @Override
+    public Program update(Integer id,ProgramRequest request) throws NotFoundException {
+        ProgramEntity programEntity = modelMapper.map(request, ProgramEntity.class);
+        programEntity.setIdProgram(id);
+        programEntity = repository.saveAndFlush(programEntity);
+
+        return findById(programEntity.getIdProgram());
+    }
+
+
 }

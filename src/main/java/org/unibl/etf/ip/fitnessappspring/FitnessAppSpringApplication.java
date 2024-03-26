@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.fitnessappspring;
 
+import org.apache.catalina.valves.rewrite.Substitution;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,8 @@ public class FitnessAppSpringApplication {
 
     @Bean
     public ModelMapper modelMapper() {
-        return new ModelMapper();
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setAmbiguityIgnored(true);
+        return mapper;
     }
 }

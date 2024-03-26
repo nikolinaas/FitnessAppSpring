@@ -1,12 +1,12 @@
 package org.unibl.etf.ip.fitnessappspring.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.fitnessappspring.exceptions.NotFoundException;
 import org.unibl.etf.ip.fitnessappspring.models.Program;
+import org.unibl.etf.ip.fitnessappspring.models.ProgramRequest;
 import org.unibl.etf.ip.fitnessappspring.models.SingleProgram;
+import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
 import org.unibl.etf.ip.fitnessappspring.services.ProgramService;
 
 import java.util.List;
@@ -39,5 +39,21 @@ public class ProgramController {
         return programService.getAllProgramsByLocation(id);
     }
 
-    /* ODRADITI OSTATAK CRUD-A ZA PROGRAME*/
+    /*TODO ODRADITI OSTATAK CRUD-A ZA PROGRAME*/
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id){
+        programService.delete(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Program insert(@RequestBody ProgramRequest request) throws NotFoundException {
+        return programService.insert(request);
+    }
+
+    @PutMapping("/{id}")
+    public Program update(@PathVariable Integer id,@RequestBody ProgramRequest request) throws NotFoundException{
+        return programService.update(id, request);
+    }
 }
