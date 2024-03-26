@@ -32,4 +32,12 @@ public class ProgramController {
     SingleProgram findById(@PathVariable Integer id) throws NotFoundException {
         return programService.findById(id);
     }
+
+    /* dobavljanje svih programa po id-u lokacije*/
+    @GetMapping("/{id}/locations")
+    List<Program> getAllProgramsByLocation(@PathVariable Integer id){
+        return programService.getAllProgramsByLocation(id);
+    }
+
+    /* ODRADITI OSTATAK CRUD-A ZA PROGRAME*/
 }

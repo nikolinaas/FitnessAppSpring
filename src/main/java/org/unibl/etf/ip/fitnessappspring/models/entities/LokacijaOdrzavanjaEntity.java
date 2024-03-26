@@ -17,7 +17,7 @@ public class LokacijaOdrzavanjaEntity {
     private Integer idlokacijaOdrzavanja;
 
     @Basic
-    @Column(name = "nazivLokacije")
+    @Column(name = "naziv_lokacije")
     private String nazivLokacije;
 
     @OneToMany(mappedBy = "lokacijaOdrzavanjaByLokacijaOdrzavanjaIdlokacijaOdrzavanja")

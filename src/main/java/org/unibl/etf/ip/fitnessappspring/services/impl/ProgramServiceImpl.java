@@ -34,4 +34,9 @@ public class ProgramServiceImpl implements ProgramService {
     public SingleProgram findById(Integer id)throws NotFoundException {
         return modelMapper.map(repository.findById(id).orElseThrow(NotFoundException::new),SingleProgram.class);
     }
+
+    @Override
+    public List<Program> getAllProgramsByLocation(Integer id) {
+    return repository.getAllByLokacijaOdrzavanjaIdlokacijaOdrzavanja(id).stream().map(l -> modelMapper.map(l, Program.class)).collect(Collectors.toList());
+    }
 }

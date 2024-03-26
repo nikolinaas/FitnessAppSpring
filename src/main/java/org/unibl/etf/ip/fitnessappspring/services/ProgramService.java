@@ -10,4 +10,6 @@ public interface ProgramService {
 
     List<Program> finidAll();
     SingleProgram findById(Integer id) throws NotFoundException;
+
+    public List<Program> getAllProgramsByLocation(Integer id);
 }
