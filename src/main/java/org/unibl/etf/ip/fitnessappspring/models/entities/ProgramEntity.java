@@ -2,17 +2,16 @@ package org.unibl.etf.ip.fitnessappspring.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Objects;
+import org.unibl.etf.ip.fitnessappspring.base.BaseEntity;
 
 @Data
 @Entity
 @Table(name = "program", schema = "fitnessapp", catalog = "")
-public class ProgramEntity {
+public class ProgramEntity implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_program")
-    private Integer idProgram;
+    private Integer id;
 
     @Basic
     @Column(name = "opis")

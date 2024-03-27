@@ -1,15 +1,12 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
-import jakarta.persistence.*;
 import lombok.Data;
-import org.unibl.etf.ip.fitnessappspring.models.entities.KategorijaEntity;
-import org.unibl.etf.ip.fitnessappspring.models.entities.LokacijaOdrzavanjaEntity;
 
 
 @Data
 public class Program {
 
-    private Integer idProgram;
+    private Integer id;
 
     private String opis;
 

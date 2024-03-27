@@ -10,9 +10,9 @@ import java.util.List;
 public class LokacijaOdrzavanja {
 
 
-    private Integer idlokacijaOdrzavanja;
+    private Integer id;
 
     private String nazivLokacije;
 
-    private List<ProgramEntity> programsByIdlokacijaOdrzavanja;
+  //  private List<ProgramEntity> programsByIdlokacijaOdrzavanja;
 }

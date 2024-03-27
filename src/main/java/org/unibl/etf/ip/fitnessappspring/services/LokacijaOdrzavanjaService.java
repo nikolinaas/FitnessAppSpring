@@ -1,15 +1,12 @@
 package org.unibl.etf.ip.fitnessappspring.services;
 
-import org.unibl.etf.ip.fitnessappspring.exceptions.NotFoundException;
-import org.unibl.etf.ip.fitnessappspring.models.LokacijaOdrzavanja;
-import org.unibl.etf.ip.fitnessappspring.models.Program;
+import org.unibl.etf.ip.fitnessappspring.base.CrudService;
 
 import java.util.List;
 
-public interface LokacijaOdrzavanjaService {
+public interface LokacijaOdrzavanjaService extends CrudService<Integer> {
 
-public List<LokacijaOdrzavanja> findAll();
-public LokacijaOdrzavanja findById(Integer id) throws NotFoundException;
+
 
 
 }
