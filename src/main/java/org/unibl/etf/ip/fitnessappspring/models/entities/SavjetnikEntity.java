@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,6 +38,7 @@ public class SavjetnikEntity {
     private List<PorukaEntity> porukasByJmbg;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "nalog_idnalog", referencedColumnName = "idnalog", nullable = false, insertable=false, updatable=false)
     private NalogEntity nalogByNalogIdnalog;
 

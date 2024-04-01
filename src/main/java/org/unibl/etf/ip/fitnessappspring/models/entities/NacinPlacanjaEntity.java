@@ -3,6 +3,7 @@ package org.unibl.etf.ip.fitnessappspring.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -18,4 +19,6 @@ public class NacinPlacanjaEntity {
     @Column(name = "naziv")
     private String naziv;
 
+    @OneToMany(mappedBy = "nacinPlacanjaByIdNacinplacanja")
+    private List<UcestvujeEntity> naciniPlacanja;
 }

@@ -1,7 +1,9 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.unibl.etf.ip.fitnessappspring.base.BaseEntity;
 
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -9,11 +11,11 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "dnevnik_aktivnosti", schema = "fitnessapp", catalog = "")
-public class DnevnikAktivnostiEntity {
+public class DnevnikAktivnostiEntity implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "iddnevnik_aktivnosti")
-    private Integer iddnevnikAktivnosti;
+    private Integer id;
 
     @Basic
     @Column(name = "vrsta_vjezbe")
@@ -39,7 +41,8 @@ public class DnevnikAktivnostiEntity {
     @Column(name = "korisnik_JMBG")
     private String korisnikJmbg;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "korisnik_JMBG", referencedColumnName = "JMBG", nullable = false,insertable=false, updatable=false)
     private KorisnikEntity korisnikByKorisnikJmbg;
 

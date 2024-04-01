@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,5 +27,16 @@ public class UcestvujeEntity {
     @Basic
     @Column(name = "instruktor")
     private Boolean instruktor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JoinColumn(name = "program_id_program", referencedColumnName = "id_program", nullable = false, insertable=false, updatable=false)
+    private ProgramEntity programByProgramIdProgram;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "nacin_placanja_idnacin_placanja", referencedColumnName = "idnacin_placanja", nullable = false, insertable=false, updatable=false)
+    private NacinPlacanjaEntity nacinPlacanjaByIdNacinplacanja;
+
 
 }

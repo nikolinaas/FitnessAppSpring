@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.unibl.etf.ip.fitnessappspring.base.BaseEntity;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "program", schema = "fitnessapp", catalog = "")
@@ -59,5 +61,7 @@ public class ProgramEntity implements BaseEntity<Integer> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "kategorija_idkategorija", referencedColumnName = "idkategorija", nullable = false, insertable=false, updatable=false)
     private KategorijaEntity kategorijaByKategorijaIdkategorija;
+    @OneToMany(mappedBy = "programByProgramIdProgram")
+    private List<UcestvujeEntity> ucestvovanja;
 
 }

@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,9 +27,11 @@ public class PorukaEntity {
     @Column(name = "korisnik_JMBG")
     private String korisnikJmbg;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "savjetnik_JMBG", referencedColumnName = "JMBG", nullable = false, insertable=false, updatable=false)
     private SavjetnikEntity savjetnikBySavjetnikJmbg;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "korisnik_JMBG", referencedColumnName = "JMBG", nullable = false, insertable=false, updatable=false)
     private KorisnikEntity korisnikByKorisnikJmbg;
 

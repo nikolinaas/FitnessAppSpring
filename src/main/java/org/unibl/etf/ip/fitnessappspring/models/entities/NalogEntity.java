@@ -1,7 +1,9 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.unibl.etf.ip.fitnessappspring.base.BaseEntity;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,11 +12,11 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "nalog", schema = "fitnessapp", catalog = "")
-public class NalogEntity {
+public class NalogEntity implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "idnalog")
-    private Integer idnalog;
+    private Integer id;
     @Basic
     @Column(name = "korisnicko_ime")
     private String korisnickoIme;
@@ -24,11 +26,14 @@ public class NalogEntity {
     @Basic
     @Column(name = "aktiviran")
     private Boolean aktiviran;
+ /*   @OneToMany(mappedBy = "nalogByNalogIdnalog")
+    @JsonIgnore
+    private List<AdministratorEntity> administratorsByIdnalog;*/
     @OneToMany(mappedBy = "nalogByNalogIdnalog")
-    private List<AdministratorEntity> administratorsByIdnalog;
-    @OneToMany(mappedBy = "nalogByNalogIdnalog")
+    @JsonIgnore
     private List<KorisnikEntity> korisniksByIdnalog;
-    @OneToMany(mappedBy = "nalogByNalogIdnalog")
-    private List<SavjetnikEntity> savjetniksByIdnalog;
+/*    @OneToMany(mappedBy = "nalogByNalogIdnalog")
+    @JsonIgnore
+    private List<SavjetnikEntity> savjetniksByIdnalog;*/
 
 }
