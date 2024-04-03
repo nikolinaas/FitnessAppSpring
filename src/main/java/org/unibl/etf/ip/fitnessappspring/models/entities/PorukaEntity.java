@@ -21,18 +21,18 @@ public class PorukaEntity {
     @Column(name = "procitana")
     private Boolean procitana;
     @Basic
-    @Column(name = "savjetnik_JMBG")
-    private String savjetnikJmbg;
+    @Column(name = "savjetnik_id")
+    private Integer savjetnikId;
     @Basic
-    @Column(name = "korisnik_JMBG")
-    private String korisnikJmbg;
+    @Column(name = "korisnik_id")
+    private Integer korisnikId;
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "savjetnik_JMBG", referencedColumnName = "JMBG", nullable = false, insertable=false, updatable=false)
-    private SavjetnikEntity savjetnikBySavjetnikJmbg;
+    @JoinColumn(name = "savjetnik_id", referencedColumnName = "id", nullable = false, insertable=false, updatable=false)
+    private SavjetnikEntity savjetnikBySavjetnikId;
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "korisnik_JMBG", referencedColumnName = "JMBG", nullable = false, insertable=false, updatable=false)
-    private KorisnikEntity korisnikByKorisnikJmbg;
+    @JoinColumn(name = "korisnik_id", referencedColumnName = "id", nullable = false, insertable=false, updatable=false)
+    private KorisnikEntity korisnikByKorisnikId;
 
 }

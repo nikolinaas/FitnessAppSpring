@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface NalogService extends CrudService<Integer> {
     List<NalogEntity> findAllWithChildren();
+
 }

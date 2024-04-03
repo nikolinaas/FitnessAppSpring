@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 public class KorisnikRequest {
 
+
     private String ime;
 
     private String prezime;
@@ -21,6 +22,5 @@ public class KorisnikRequest {
     private String adresa;
 
     private Integer nalogIdnalog;
-
 
 }

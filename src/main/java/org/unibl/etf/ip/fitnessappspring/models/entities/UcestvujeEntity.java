@@ -12,8 +12,8 @@ import java.util.Objects;
 public class UcestvujeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "korisnik_JMBG")
-    private String korisnikJmbg;
+    @Column(name = "korisnik_id")
+    private Integer korisnikId;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

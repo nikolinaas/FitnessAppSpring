@@ -10,4 +10,6 @@ public interface NalogEntityRepository extends JpaRepository<NalogEntity,Integer
 
     @Query("SELECT p FROM NalogEntity p JOIN FETCH p.korisniksByIdnalog")
     List<NalogEntity> findAllWithChildren();
+
+
 }

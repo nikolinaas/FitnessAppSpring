@@ -14,8 +14,8 @@ import java.util.Objects;
 public class SavjetnikEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "JMBG")
-    private String jmbg;
+    @Column(name = "id")
+    private Integer id;
     @Basic
     @Column(name = "ime")
     private String ime;
@@ -34,8 +34,8 @@ public class SavjetnikEntity {
     @Basic
     @Column(name = "nalog_idnalog")
     private Integer nalogIdnalog;
-    @OneToMany(mappedBy = "savjetnikBySavjetnikJmbg")
-    private List<PorukaEntity> porukasByJmbg;
+    @OneToMany(mappedBy = "savjetnikBySavjetnikId")
+    private List<PorukaEntity> porukasById;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

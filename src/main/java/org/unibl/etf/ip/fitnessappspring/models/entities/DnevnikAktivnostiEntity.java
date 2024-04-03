@@ -38,12 +38,12 @@ public class DnevnikAktivnostiEntity implements BaseEntity<Integer> {
     private Integer brKilograma;
 
     @Basic
-    @Column(name = "korisnik_JMBG")
-    private String korisnikJmbg;
+    @Column(name = "korisnik_id")
+    private Integer korisnikId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinColumn(name = "korisnik_JMBG", referencedColumnName = "JMBG", nullable = false,insertable=false, updatable=false)
-    private KorisnikEntity korisnikByKorisnikJmbg;
+    @JoinColumn(name = "korisnik_id", referencedColumnName = "id", nullable = false,insertable=false, updatable=false)
+    private KorisnikEntity korisnikByKorisnikId;
 
 }

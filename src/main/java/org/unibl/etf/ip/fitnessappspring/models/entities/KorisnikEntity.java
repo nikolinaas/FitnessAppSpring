@@ -12,11 +12,12 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "korisnik", schema = "fitnessapp", catalog = "")
-public class KorisnikEntity implements BaseEntity<String> {
+public class KorisnikEntity implements BaseEntity<Integer> {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "JMBG")
-    private String id;
+    @Column(name = "id")
+    private Integer id;
 
     @Basic
     @Column(name = "ime")
@@ -42,14 +43,14 @@ public class KorisnikEntity implements BaseEntity<String> {
     @Column(name = "nalog_idnalog")
     private Integer nalogIdnalog;
 
-    @OneToMany(mappedBy = "korisnikByKorisnikJmbg", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "korisnikByKorisnikId", fetch = FetchType.LAZY)
     @JsonIgnore
-    private List<DnevnikAktivnostiEntity> dnevnikAktivnostisByJmbg;
+    private List<DnevnikAktivnostiEntity> dnevnikAktivnostisById;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "nalog_idnalog", referencedColumnName = "idnalog", nullable = false, insertable=false, updatable=false)
     @JsonIgnore
     private NalogEntity nalogByNalogIdnalog;
-    @OneToMany(mappedBy = "korisnikByKorisnikJmbg")
-    private List<PorukaEntity> porukasByJmbg;
+    @OneToMany(mappedBy = "korisnikByKorisnikId")
+    private List<PorukaEntity> porukasById;
 
 }
