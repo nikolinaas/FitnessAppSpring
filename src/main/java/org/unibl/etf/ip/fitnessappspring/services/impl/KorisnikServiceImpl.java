@@ -34,4 +34,10 @@ public class KorisnikServiceImpl extends CrudJPAService<KorisnikEntity, Integer>
         System.out.println(entity);
         return modelMapper.map(entity, KorisnikEntity.class);
     }
+
+    @Override
+    public KorisnikEntity getUserByAccountId(Integer id) {
+        return repository.getKorisnikEntityByNalogIdnalog(id);
+
+    }
 }

@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.fitnessappspring.models.KorisnikRequest;
+import org.unibl.etf.ip.fitnessappspring.models.MailRequest;
 import org.unibl.etf.ip.fitnessappspring.models.RegisterKorinsikRequest;
 import org.unibl.etf.ip.fitnessappspring.models.entities.KorisnikEntity;
 import org.unibl.etf.ip.fitnessappspring.repositories.KorisnikEntityRepository;
@@ -27,7 +28,7 @@ public class MailController {
     void sendMail(@RequestBody KorisnikRequest request)  {
         KorisnikEntity entity = modelMapper.map(request, KorisnikEntity.class);
         try {
-            mailService.sendVerificationEmail(entity.getEmail(), entity.getAktivacioniKod());
+            mailService.sendVerificationEmail(entity.getEmail(), request.getAktivacioniKod());
         }catch (Exception e){
         System.out.println("Mail wasnt sent");
         }

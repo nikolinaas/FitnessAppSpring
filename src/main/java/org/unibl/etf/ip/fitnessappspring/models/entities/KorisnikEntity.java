@@ -55,6 +55,7 @@ public class KorisnikEntity implements BaseEntity<Integer> {
     @JsonIgnore
     private NalogEntity nalogByNalogIdnalog;
     @OneToMany(mappedBy = "korisnikByKorisnikId")
+    @JsonIgnore
     private List<PorukaEntity> porukasById;
 
 }
