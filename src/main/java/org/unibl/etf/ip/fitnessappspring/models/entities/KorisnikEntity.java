@@ -43,6 +43,10 @@ public class KorisnikEntity implements BaseEntity<Integer> {
     @Column(name = "nalog_idnalog")
     private Integer nalogIdnalog;
 
+    @Basic
+    @Column(name = "aktivacioni_kod")
+    private String aktivacioniKod;
+
     @OneToMany(mappedBy = "korisnikByKorisnikId", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<DnevnikAktivnostiEntity> dnevnikAktivnostisById;

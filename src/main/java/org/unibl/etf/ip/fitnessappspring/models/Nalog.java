@@ -15,6 +15,7 @@ public class Nalog {
     private String korisnickoIme;
     private String lozinka;
     private Boolean aktiviran;
+    private String aktivacioniKod;
 /*    private List<AdministratorEntity> administratorsByIdnalog;*/
  //   private List<KorisnikEntity> korisniksByIdnalog;
 /*    private List<SavjetnikEntity> savjetniksByIdnalog;*/

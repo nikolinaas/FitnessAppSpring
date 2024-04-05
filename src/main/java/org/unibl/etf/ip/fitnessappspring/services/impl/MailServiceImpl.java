@@ -33,7 +33,7 @@ public class MailServiceImpl implements MailService {
 
     @Async
     @Override
-    public void sendVerificationEmail(String to) throws MessagingException {
+    public void sendVerificationEmail(String to, String verificationCode) throws MessagingException {
 System.out.println(fromMail);
         System.out.println(pass);
         try{
@@ -45,7 +45,7 @@ System.out.println(fromMail);
 
            ClassPathResource htmlPath = new ClassPathResource("AccountVerification.html");
             var html= Files.readString(Path.of(htmlPath.getFile().getAbsolutePath()));
-            html=html.replace("validation.url",accountVerificationUrl+"token");
+            html=html.replace("verificationCode",verificationCode);
 
             helper.setText(html,true);
             helper.setFrom(fromMail);

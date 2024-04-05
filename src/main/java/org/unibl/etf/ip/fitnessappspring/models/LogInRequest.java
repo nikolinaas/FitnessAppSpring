@@ -3,9 +3,7 @@ package org.unibl.etf.ip.fitnessappspring.models;
 import lombok.Data;
 
 @Data
-public class NalogRequest {
+public class LogInRequest {
     private String korisnickoIme;
     private String lozinka;
-    private Boolean aktiviran;
-    private String aktivacioniKod;
 }

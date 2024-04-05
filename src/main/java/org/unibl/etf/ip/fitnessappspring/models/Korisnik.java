@@ -25,6 +25,7 @@ public class Korisnik {
     private String adresa;
 
     private Integer nalogIdnalog;
+    private String aktivacioniKod;
     private List<DnevnikAktivnostiEntity> dnevnikAktivnostisByJmbg;
   //  private List<PorukaEntity> porukasByJmbg;
     private String nalogKorisnickoIme;

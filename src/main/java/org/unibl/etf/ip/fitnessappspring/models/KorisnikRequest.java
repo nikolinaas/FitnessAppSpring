@@ -22,5 +22,6 @@ public class KorisnikRequest {
     private String adresa;
 
     private Integer nalogIdnalog;
+    private String aktivacioniKod;
 
 }

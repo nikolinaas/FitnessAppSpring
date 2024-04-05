@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.fitnessappspring.controllers;
 
 import jakarta.mail.MessagingException;
+import jakarta.persistence.EnumType;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +27,9 @@ public class MailController {
     void sendMail(@RequestBody KorisnikRequest request)  {
         KorisnikEntity entity = modelMapper.map(request, KorisnikEntity.class);
         try {
-            mailService.sendVerificationEmail(entity.getEmail());
+            mailService.sendVerificationEmail(entity.getEmail(), entity.getAktivacioniKod());
         }catch (Exception e){
-System.out.println("Mail wasnt sent");
+        System.out.println("Mail wasnt sent");
         }
 
 }

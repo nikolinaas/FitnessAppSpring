@@ -26,6 +26,9 @@ public class NalogEntity implements BaseEntity<Integer> {
     @Basic
     @Column(name = "aktiviran")
     private Boolean aktiviran;
+    @Basic
+    @Column(name = "aktivacioni_kod")
+    private String aktivacioniKod;
  /*   @OneToMany(mappedBy = "nalogByNalogIdnalog")
     @JsonIgnore
     private List<AdministratorEntity> administratorsByIdnalog;*/

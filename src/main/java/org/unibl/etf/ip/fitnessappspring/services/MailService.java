@@ -5,5 +5,5 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 public interface MailService {
     @Async
-    void sendVerificationEmail(String to) throws MessagingException;
+    void sendVerificationEmail(String to, String verificationCode) throws MessagingException;
 }
