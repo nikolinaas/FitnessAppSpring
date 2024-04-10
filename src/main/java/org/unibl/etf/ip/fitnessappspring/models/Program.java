@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
 import lombok.Data;
+import org.unibl.etf.ip.fitnessappspring.models.entities.SlikaEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.UcestvujeEntity;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class Program {
 
     private Integer cijena;
 
-    private Integer nivoTezine;
+    private String nivoTezine;
 
     private Integer trajanje;
 
@@ -25,7 +26,7 @@ public class Program {
     private Integer lokacijaOdrzavanjaIdlokacijaOdrzavanja;
 
     private Integer kategorijaIdkategorija;
-
+    private Integer slikaId;
     private Boolean online;
 
 
@@ -33,6 +34,7 @@ public class Program {
 
     private String nazivPrograma;
     private List<UcestvujeEntity> ucestvovanja;
+    private SlikaEntity slika;
  /*   private LokacijaOdrzavanjaEntity lokacijaOdrzavanjaByLokacijaOdrzavanjaIdlokacijaOdrzavanja;  TODO ovako je kad mapiram kao objekat tog entiteta
     private KategorijaEntity kategorijaByKategorijaIdkategorija;*/
 

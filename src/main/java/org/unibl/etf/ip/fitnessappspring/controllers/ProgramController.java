@@ -13,16 +13,19 @@ import org.unibl.etf.ip.fitnessappspring.services.ProgramService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping("/programs")
 public class ProgramController extends CrudController<Integer, ProgramRequest, Program> {
 
 
-   // private final ProgramService programService;
+    private final ProgramService programService;
 
     public ProgramController(ProgramService programService) {
         super(programService, Program.class);
 
+        this.programService = programService;
     }
+
 
 
 }

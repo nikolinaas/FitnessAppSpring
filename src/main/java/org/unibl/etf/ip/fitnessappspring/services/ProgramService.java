@@ -11,5 +11,5 @@ import java.util.List;
 public interface ProgramService extends CrudService<Integer> {
 
     public List<Program> getAllProgramsByLocation(Integer id);
-
+    public byte[] getImageByProgramId(Integer id);
 }

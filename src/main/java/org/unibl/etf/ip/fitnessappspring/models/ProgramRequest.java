@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
 import lombok.Data;
+import org.unibl.etf.ip.fitnessappspring.models.entities.SlikaEntity;
 
 @Data
 public class ProgramRequest {
@@ -9,7 +10,7 @@ public class ProgramRequest {
 
     private Integer cijena;
 
-    private Integer nivoTezine;
+    private String nivoTezine;
 
     private Integer trajanje;
 
@@ -21,6 +22,7 @@ public class ProgramRequest {
 
     private Boolean online;
 
+    private SlikaEntity slika;
 
     private Boolean uzivo;
 

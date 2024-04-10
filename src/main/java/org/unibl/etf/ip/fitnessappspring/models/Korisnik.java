@@ -23,7 +23,7 @@ public class Korisnik {
     private String brojTelefona;
 
     private String adresa;
-
+    private Integer slikaId;
     private Integer nalogIdnalog;
     private String aktivacioniKod;
     private List<DnevnikAktivnostiEntity> dnevnikAktivnostisByJmbg;

@@ -25,7 +25,7 @@ public class ProgramEntity implements BaseEntity<Integer> {
 
     @Basic
     @Column(name = "nivo_tezine")
-    private Integer nivoTezine;
+    private String nivoTezine;
 
     @Basic
     @Column(name = "trajanje")
@@ -33,7 +33,7 @@ public class ProgramEntity implements BaseEntity<Integer> {
 
     @Basic
     @Column(name = "slike")
-    private String slike;
+    private byte[] slike;
 
     @Basic
     @Column(name = "lokacija_odrzavanja_idlokacija_odrzavanja")
@@ -54,7 +54,9 @@ public class ProgramEntity implements BaseEntity<Integer> {
     @Basic
     @Column(name = "naziv_programa")
     private String nazivPrograma;
-
+    @Basic
+    @Column(name = "slika_id")
+    private Integer slikaId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lokacija_odrzavanja_idlokacija_odrzavanja", referencedColumnName = "idlokacija_odrzavanja", nullable = false,insertable=false, updatable=false)
     private LokacijaOdrzavanjaEntity lokacijaOdrzavanjaByLokacijaOdrzavanjaIdlokacijaOdrzavanja;

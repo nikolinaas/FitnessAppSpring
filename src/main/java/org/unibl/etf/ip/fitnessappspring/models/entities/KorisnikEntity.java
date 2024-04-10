@@ -42,7 +42,9 @@ public class KorisnikEntity implements BaseEntity<Integer> {
     @Basic
     @Column(name = "nalog_idnalog")
     private Integer nalogIdnalog;
-
+    @Basic
+    @Column(name = "slika_id")
+    private Integer slikaId;
     @Basic
     @Column(name = "aktivacioni_kod")
     private String aktivacioniKod;
