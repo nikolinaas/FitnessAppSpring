@@ -14,5 +14,4 @@ public class Kategorija {
 
     private String opisKategorije;
 
-    private List<ProgramEntity> programsByIdkategorija;
 }

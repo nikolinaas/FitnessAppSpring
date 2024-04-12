@@ -3,20 +3,25 @@ package org.unibl.etf.ip.fitnessappspring.models.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.unibl.etf.ip.fitnessappspring.base.BaseEntity;
 
 import java.util.Objects;
 
 @Data
 @Entity
 @Table(name = "ucestvuje", schema = "fitnessapp", catalog = "")
-public class UcestvujeEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "korisnik_id")
-    private Integer korisnikId;
+public class UcestvujeEntity implements BaseEntity<Integer> {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
+    private Integer id;
+
+
+    @Column(name = "korisnik_id")
+    private Integer korisnikId;
+
+
     @Column(name = "program_id_program")
     private Integer programIdProgram;
 
@@ -32,6 +37,12 @@ public class UcestvujeEntity {
     @JsonIgnore
     @JoinColumn(name = "program_id_program", referencedColumnName = "id_program", nullable = false, insertable=false, updatable=false)
     private ProgramEntity programByProgramIdProgram;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JoinColumn(name = "korisnik_id", referencedColumnName = "id", nullable = false, insertable=false, updatable=false)
+    private KorisnikEntity korisnikByKorisnikId;
 
     @ManyToOne
     @JsonIgnore

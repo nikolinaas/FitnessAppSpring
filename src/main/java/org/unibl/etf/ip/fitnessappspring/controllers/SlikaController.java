@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.unibl.etf.ip.fitnessappspring.base.CrudController;
 import org.unibl.etf.ip.fitnessappspring.base.CrudService;
 import org.unibl.etf.ip.fitnessappspring.models.Program;
@@ -33,5 +34,10 @@ public class SlikaController extends CrudController<Integer, SlikaRequest, Slika
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getTip()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + image.getIme() + "\"")
                 .body(image.getFile());
+    }
+
+    @PostMapping
+    public Slika uploadImage(@RequestParam("image") MultipartFile file) throws IOException{
+        return this.slikaService.uploadImage(file);
     }
 }
