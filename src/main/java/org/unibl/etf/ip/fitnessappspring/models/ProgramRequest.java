@@ -14,7 +14,6 @@ public class ProgramRequest {
 
     private Integer trajanje;
 
-    private String slike;
 
     private Integer lokacijaOdrzavanjaIdlokacijaOdrzavanja;
 
@@ -22,8 +21,7 @@ public class ProgramRequest {
 
     private Boolean online;
 
-    private SlikaEntity slika;
-
+    private Integer slikaId;
     private Boolean uzivo;
 
     private String nazivPrograma;

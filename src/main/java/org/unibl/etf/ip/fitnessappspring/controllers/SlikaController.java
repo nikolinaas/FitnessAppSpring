@@ -2,6 +2,7 @@ package org.unibl.etf.ip.fitnessappspring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.unibl.etf.ip.fitnessappspring.models.Program;
 import org.unibl.etf.ip.fitnessappspring.models.ProgramRequest;
 import org.unibl.etf.ip.fitnessappspring.models.Slika;
 import org.unibl.etf.ip.fitnessappspring.models.SlikaRequest;
+import org.unibl.etf.ip.fitnessappspring.models.entities.SlikaEntity;
 import org.unibl.etf.ip.fitnessappspring.services.ProgramService;
 import org.unibl.etf.ip.fitnessappspring.services.SlikaService;
 
@@ -36,7 +38,8 @@ public class SlikaController extends CrudController<Integer, SlikaRequest, Slika
                 .body(image.getFile());
     }
 
-    @PostMapping
+    @PostMapping("/upload")
+    @ResponseStatus(HttpStatus.CREATED)
     public Slika uploadImage(@RequestParam("image") MultipartFile file) throws IOException{
         return this.slikaService.uploadImage(file);
     }

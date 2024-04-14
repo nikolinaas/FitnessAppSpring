@@ -65,5 +65,7 @@ public class ProgramEntity implements BaseEntity<Integer> {
     private KategorijaEntity kategorijaByKategorijaIdkategorija;
     @OneToMany(mappedBy = "programByProgramIdProgram")
     private List<UcestvujeEntity> ucestvovanja;
+    @OneToMany(mappedBy = "programByProgramIdProgram")
+    private List<PitanjeOProgramuEntity> pitanja;
 
 }

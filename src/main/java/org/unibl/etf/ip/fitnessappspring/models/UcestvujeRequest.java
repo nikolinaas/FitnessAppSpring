@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UcestvujeRequest {
-    private String korisnikJmbg;
+    private Integer korisnikId;
 
     private Integer programIdProgram;
 

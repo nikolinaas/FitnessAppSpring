@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
 import lombok.Data;
+import org.unibl.etf.ip.fitnessappspring.models.entities.PitanjeOProgramuEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.SlikaEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.UcestvujeEntity;
 
@@ -41,4 +42,5 @@ public class Program {
     private String lokacijaOdrzavanjaNazivLokacije;
     private String kategorijaNazivKategorija;
     private String kategorijaOpisKategorije;
+    private List<PitanjeOProgramuEntity> pitanja;
 }
