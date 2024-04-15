@@ -33,6 +33,10 @@ public class UcestvujeEntity implements BaseEntity<Integer> {
     @Column(name = "instruktor")
     private Boolean instruktor;
 
+    @Basic
+    @Column(name = "aktivno")
+    private Boolean aktivno;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = "program_id_program", referencedColumnName = "id_program", nullable = false, insertable=false, updatable=false)

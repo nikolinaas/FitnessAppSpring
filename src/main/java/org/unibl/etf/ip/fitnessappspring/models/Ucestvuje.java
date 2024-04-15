@@ -7,6 +7,7 @@ import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
 
 @Data
 public class Ucestvuje {
+    private Integer id;
     private String korisnikId;
 
 
@@ -17,7 +18,8 @@ public class Ucestvuje {
     private String nacinPlacanjaByIdNacinplacanjaNaziv;
 
     private Boolean instruktor;
+    private Boolean aktivno;
 
     private String korisnikIme;
-  //  private ProgramEntity program;
+    private ProgramEntity program;
 }

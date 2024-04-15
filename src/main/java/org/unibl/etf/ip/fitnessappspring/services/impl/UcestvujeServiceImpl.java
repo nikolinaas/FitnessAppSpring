@@ -8,6 +8,8 @@ import org.unibl.etf.ip.fitnessappspring.models.entities.UcestvujeEntity;
 import org.unibl.etf.ip.fitnessappspring.repositories.UcestvujeEntityRepository;
 import org.unibl.etf.ip.fitnessappspring.services.UcestvujeService;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class UcestvujeServiceImpl extends CrudJPAService<UcestvujeEntity,Integer> implements UcestvujeService {
@@ -19,5 +21,15 @@ public class UcestvujeServiceImpl extends CrudJPAService<UcestvujeEntity,Integer
         super(repository, modelMapper, UcestvujeEntity.class);
         this.modelMapper = modelMapper;
         this.repository = repository;
+    }
+
+    @Override
+    public List<UcestvujeEntity> getEntitiesByKorisnikId(Integer id, Boolean aktivan) {
+        return repository.findUcestvujeEntitiesByKorisnikIdAndAktivno(id,aktivan);
+    }
+
+    @Override
+    public UcestvujeEntity getEntityByProgId(Integer id, Integer korisnik) {
+        return repository.findByProgramIdProgramAndKorisnikId(id, korisnik);
     }
 }

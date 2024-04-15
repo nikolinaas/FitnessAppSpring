@@ -14,7 +14,7 @@ import java.util.Objects;
 public class DnevnikAktivnostiEntity implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "iddnevnik_aktivnosti")
+    @Column(name = "id")
     private Integer id;
 
     @Basic

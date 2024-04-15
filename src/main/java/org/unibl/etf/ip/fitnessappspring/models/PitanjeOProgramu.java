@@ -21,7 +21,8 @@ public class PitanjeOProgramu {
 
     private String korisnikIme;
     private String korisnikPrezime;
-    private List<OdgovorNaPitanjeEntity> odgovori;
+
+    private List<OdgovorNaPitanje> odgovori;
    // private ProgramEntity programByProgramIdProgram;
 
 }

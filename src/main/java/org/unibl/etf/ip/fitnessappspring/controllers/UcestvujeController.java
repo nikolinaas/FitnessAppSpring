@@ -1,13 +1,19 @@
 package org.unibl.etf.ip.fitnessappspring.controllers;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.fitnessappspring.base.CrudController;
+import org.unibl.etf.ip.fitnessappspring.models.Program;
 import org.unibl.etf.ip.fitnessappspring.models.Ucestvuje;
 import org.unibl.etf.ip.fitnessappspring.models.UcestvujeRequest;
+import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
+import org.unibl.etf.ip.fitnessappspring.models.entities.UcestvujeEntity;
 import org.unibl.etf.ip.fitnessappspring.services.UcestvujeService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -15,9 +21,34 @@ import org.unibl.etf.ip.fitnessappspring.services.UcestvujeService;
 public class UcestvujeController extends CrudController<Integer, UcestvujeRequest, Ucestvuje> {
 
     private final UcestvujeService service;
+    private final ModelMapper mapper;
 
-    public UcestvujeController(UcestvujeService service) {
+    public UcestvujeController(UcestvujeService service, ModelMapper mapper) {
         super(service, Ucestvuje.class);
         this.service = service;
+        this.mapper = mapper;
+    }
+
+    @GetMapping("/programiAktivni/{id}")
+    public List<Program> getProgramsByKorisnikId(@PathVariable  Integer id){
+        List<ProgramEntity> progs = new ArrayList<>();
+        List<UcestvujeEntity> entities = service.getEntitiesByKorisnikId(id,true);
+        for(UcestvujeEntity ent : entities){
+            progs.add(ent.getProgramByProgramIdProgram());
+        }
+        return progs.stream().map(l -> mapper.map(l,Program.class)).collect(Collectors.toList());
+    }
+    @GetMapping("/programiNeaktivni/{id}")
+    public List<Program> getProgramsUnactiveByKorisnikId(@PathVariable  Integer id){
+        List<ProgramEntity> progs = new ArrayList<>();
+        List<UcestvujeEntity> entities = service.getEntitiesByKorisnikId(id,false);
+        for(UcestvujeEntity ent : entities){
+            progs.add(ent.getProgramByProgramIdProgram());
+        }
+        return progs.stream().map(l -> mapper.map(l,Program.class)).collect(Collectors.toList());
+    }
+    @GetMapping("/program/{id}/{korisnik}")
+    public UcestvujeEntity getUcestvujeByProgId(@PathVariable  Integer id, @PathVariable Integer korisnik){
+        return service.getEntityByProgId(id,korisnik);
     }
 }
