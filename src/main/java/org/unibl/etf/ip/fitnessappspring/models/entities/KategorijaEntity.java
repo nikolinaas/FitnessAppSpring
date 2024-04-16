@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.fitnessappspring.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,11 @@ public class KategorijaEntity {
     private String opisKategorije;
 
     @OneToMany(mappedBy = "kategorijaByKategorijaIdkategorija")
+    @JsonIgnore
     private List<ProgramEntity> programsByIdkategorija;
+
+    @OneToMany(mappedBy = "kategorijaByKategorijaIdkategorija")
+    @JsonIgnore
+    private List<PretplataEntity> pretplate;
 
 }

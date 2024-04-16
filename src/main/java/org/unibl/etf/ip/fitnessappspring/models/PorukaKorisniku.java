@@ -8,7 +8,7 @@ import lombok.Data;
 public class PorukaKorisniku {
     private Integer id;
     private String sadrzaj;
-    private Byte procitana;
+    private Boolean procitana;
     private String naslov;
     private Integer korisnikPosiljalacId;
     private Integer korisnikPrimalacId;

@@ -54,6 +54,10 @@ public class ProgramEntity implements BaseEntity<Integer> {
     @Basic
     @Column(name = "naziv_programa")
     private String nazivPrograma;
+
+    @Basic
+    @Column(name = "video")
+    private String video;
     @Basic
     @Column(name = "slika_id")
     private Integer slikaId;

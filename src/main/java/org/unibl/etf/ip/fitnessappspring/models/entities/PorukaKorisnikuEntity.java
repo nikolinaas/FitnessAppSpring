@@ -19,7 +19,7 @@ public class PorukaKorisnikuEntity implements BaseEntity<Integer> {
     private String sadrzaj;
     @Basic
     @Column(name = "procitana")
-    private Byte procitana;
+    private Boolean procitana;
     @Basic
     @Column(name = "naslov")
     private String naslov;

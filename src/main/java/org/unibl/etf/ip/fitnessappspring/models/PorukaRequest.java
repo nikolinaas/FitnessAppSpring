@@ -1,11 +1,11 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-public class Poruka {
-    private Integer id;
+public class PorukaRequest {
+
+
 
     private String sadrzaj;
     private String naslov;

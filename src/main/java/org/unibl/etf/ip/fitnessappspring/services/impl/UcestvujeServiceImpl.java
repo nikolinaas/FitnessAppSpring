@@ -32,4 +32,9 @@ public class UcestvujeServiceImpl extends CrudJPAService<UcestvujeEntity,Integer
     public UcestvujeEntity getEntityByProgId(Integer id, Integer korisnik) {
         return repository.findByProgramIdProgramAndKorisnikId(id, korisnik);
     }
+
+    @Override
+    public List<UcestvujeEntity> getEntitiesWithInstruktor(Boolean isInstruktor, Integer id) {
+        return repository.findUcestvujeEntitiesByInstruktorAndProgramIdProgram(isInstruktor,id);
+    }
 }

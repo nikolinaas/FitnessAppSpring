@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.fitnessappspring.models;
 
 import lombok.Data;
+import org.unibl.etf.ip.fitnessappspring.models.entities.PretplataEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public class Kategorija {
     private String nazivKategorija;
 
     private String opisKategorije;
+    private List<PretplataEntity> pretplate;
 
 }

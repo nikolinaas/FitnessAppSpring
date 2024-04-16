@@ -11,7 +11,7 @@ public interface UcestvujeEntityRepository extends JpaRepository<UcestvujeEntity
 
 
     public List<UcestvujeEntity>  findUcestvujeEntitiesByKorisnikIdAndAktivno(Integer id, Boolean aktivan);
-
+    public List<UcestvujeEntity>  findUcestvujeEntitiesByInstruktorAndProgramIdProgram(Boolean isInstruktor, Integer id);
     public  UcestvujeEntity getByProgramIdProgram(Integer id);
     public  UcestvujeEntity findByProgramIdProgramAndKorisnikId(Integer id, Integer korisnik);
 

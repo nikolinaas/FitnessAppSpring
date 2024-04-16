@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class Korisnik {
 
-    private String id;
+    private Integer id;
 
     private String ime;
 

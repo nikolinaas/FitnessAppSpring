@@ -18,7 +18,7 @@ public class ProgramRequest {
     private Integer lokacijaOdrzavanjaIdlokacijaOdrzavanja;
 
     private Integer kategorijaIdkategorija;
-
+    private String video;
     private Boolean online;
 
     private Integer slikaId;

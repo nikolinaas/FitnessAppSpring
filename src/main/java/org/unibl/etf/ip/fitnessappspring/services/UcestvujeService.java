@@ -9,4 +9,5 @@ public interface UcestvujeService extends CrudService<Integer> {
 
     public List<UcestvujeEntity> getEntitiesByKorisnikId(Integer id, Boolean aktivan);
     public UcestvujeEntity getEntityByProgId(Integer id, Integer korisnik);
+    public List<UcestvujeEntity> getEntitiesWithInstruktor(Boolean isInstruktor, Integer id);
 }

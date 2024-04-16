@@ -13,5 +13,4 @@ public interface ProgramEntityRepository extends JpaRepository<ProgramEntity, In
     public ProgramEntity getById(Integer id);
 
 
-
 }

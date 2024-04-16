@@ -4,9 +4,11 @@ package org.unibl.etf.ip.fitnessappspring.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.fitnessappspring.base.CrudController;
+import org.unibl.etf.ip.fitnessappspring.models.Korisnik;
 import org.unibl.etf.ip.fitnessappspring.models.Program;
 import org.unibl.etf.ip.fitnessappspring.models.Ucestvuje;
 import org.unibl.etf.ip.fitnessappspring.models.UcestvujeRequest;
+import org.unibl.etf.ip.fitnessappspring.models.entities.KorisnikEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.ProgramEntity;
 import org.unibl.etf.ip.fitnessappspring.models.entities.UcestvujeEntity;
 import org.unibl.etf.ip.fitnessappspring.services.UcestvujeService;
@@ -50,5 +52,16 @@ public class UcestvujeController extends CrudController<Integer, UcestvujeReques
     @GetMapping("/program/{id}/{korisnik}")
     public UcestvujeEntity getUcestvujeByProgId(@PathVariable  Integer id, @PathVariable Integer korisnik){
         return service.getEntityByProgId(id,korisnik);
+    }
+
+    @GetMapping("/instruktor/program/{id}")
+    List<Korisnik> getInstruktoriByProgId(@PathVariable Integer id){
+        List<KorisnikEntity> korisnici = new ArrayList<>();
+        List<UcestvujeEntity> entities = service.getEntitiesWithInstruktor(true,id);
+        for(UcestvujeEntity ent : entities){
+            korisnici.add(ent.getKorisnikByKorisnikId());
+        }
+
+        return korisnici.stream().map(l -> mapper.map(l, Korisnik.class)).collect(Collectors.toList());
     }
 }

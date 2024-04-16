@@ -25,7 +25,7 @@ public class Program {
     private String slike;
 
     private Integer lokacijaOdrzavanjaIdlokacijaOdrzavanja;
-
+    private String video;
     private Integer kategorijaIdkategorija;
     private Integer slikaId;
     private Boolean online;
