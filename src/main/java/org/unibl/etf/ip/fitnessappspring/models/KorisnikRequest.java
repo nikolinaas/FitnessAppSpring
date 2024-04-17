@@ -20,7 +20,7 @@ public class KorisnikRequest {
     private String brojTelefona;
 
     private String adresa;
-
+    private Integer slikaId;
     private Integer nalogIdnalog;
     private String aktivacioniKod;
 
