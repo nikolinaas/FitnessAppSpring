@@ -26,7 +26,7 @@ public class Korisnik {
     private Integer slikaId;
     private Integer nalogIdnalog;
     private String aktivacioniKod;
-    private List<DnevnikAktivnostiEntity> dnevnikAktivnostisByJmbg;
+    private List<DnevnikAktivnostiEntity> dnevnikAktivnostisById;
   //  private List<PorukaEntity> porukasByJmbg;
     private String nalogKorisnickoIme;
     private String nalogLozinka;

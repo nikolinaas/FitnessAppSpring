@@ -16,5 +16,5 @@ public class DnevnikAktivnostiRequest {
 
     private Integer brKilograma;
 
-    private String korisnikJmbg;
+    private Integer korisnikId;
 }

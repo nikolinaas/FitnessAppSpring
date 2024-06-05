@@ -9,7 +9,7 @@ import org.unibl.etf.ip.fitnessappspring.models.DnevnikAktivnostiRequest;
 import org.unibl.etf.ip.fitnessappspring.services.DnevnikAktivnostiService;
 
 @RestController
-@RequestMapping("/dnevnikaktivnostii")
+@RequestMapping("/dnevnikaktivnosti")
 public class DnevnikAktivnostiController extends CrudController<Integer, DnevnikAktivnostiRequest, DnevnikAktivnosti> {
     protected DnevnikAktivnostiController(DnevnikAktivnostiService service) {
         super(service, DnevnikAktivnosti.class);
